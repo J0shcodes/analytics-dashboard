@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import Header from "@/components/Header";
+import SideNav from "@/components/SideNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,9 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-white">
-        <Header/>
-        {children}</body>
+      <body className="bg-[#fafafa] flex relative">
+        <SideNav />
+        <div className="w-[95%]">
+          <Header />
+          {children}
+        </div>
+      </body>
     </html>
   );
 }

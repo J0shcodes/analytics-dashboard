@@ -15,7 +15,13 @@ const config: Config = {
       },
       colors: {
         "analytics-dark": "#26282c",
-        "analytics-grey-1": "#dadddd"
+        "analytics-dark-2": "#3a3f51",
+        "analytics-dark-3": "#0d062d",
+        "analytics-dark-4": "#22242c",
+        "analytics-grey-1": "#dadddd",
+        "analytics-grey-2": "#f5f5f5",
+        "analytics-grey-3": "#525252",
+        "analytics-green": "#34caa5"
       }
     },
   },
