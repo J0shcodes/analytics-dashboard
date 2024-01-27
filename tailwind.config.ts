@@ -21,7 +21,9 @@ const config: Config = {
         "analytics-grey-1": "#dadddd",
         "analytics-grey-2": "#f5f5f5",
         "analytics-grey-3": "#525252",
-        "analytics-green": "#34caa5"
+        "analytics-green": "#34caa5",
+        "analytics-green-2": "rgba(52, 202, 165, 0.12)",
+        "analytics-red": "rgba(237, 84, 78, 0.12)"
       }
     },
   },
