@@ -38,7 +38,7 @@ const SideNav = () => {
   }
 
   return (
-    <div className="flex py-5 px-0 flex-col items-center gap-[0.625rem] border border-solid border-[#ebecf2] bg-[#f7f8fa] h-screen w-[5%]">
+    <div className="flex py-5 px-0 flex-col items-center gap-[0.625rem] border border-solid border-[#ebecf2] bg-[#f7f8fa] h-screen w-[5%] fixed">
       <section>
         <div>
           <Logo />

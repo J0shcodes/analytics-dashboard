@@ -1,4 +1,9 @@
+'use client'
+
+import { useState } from "react";
 import Image from "next/image";
+import Calendar from "react-calendar";
+import 'react-calendar/dist/Calendar.css';
 
 import Orders from "@/components/Analytics/Orders";
 import Platform from "@/components/Analytics/Platform";
@@ -13,9 +18,15 @@ import ShoppingCart from "@/public/assets/icons/ShoppingCart";
 import SpiralGreenArrow from "@/public/assets/icons/SpiralGreenArrow";
 import SpiralRedArrow from "@/public/assets/icons/SpiralRedArrow";
 
+type ValuePiece = Date | null;
+
+type Value = ValuePiece | [ValuePiece, ValuePiece];
+
 export default function Home() {
+  const [value, onChange] = useState<Value>(new Date())
+
   return (
-    <main className="p-5 grid grid-cols-12 gap-5">
+    <main className="p-5 grid grid-cols-12 gap-5 relative">
       <Sales />
       <div className="col-span-5">
         <div className="grid grid-cols-8 gap-4">
@@ -55,6 +66,9 @@ export default function Home() {
       </div>
       <Orders />
       <Platform />
+      {/* <div className="absolute right-[14rem] -top-4">
+        <Calendar onChange={onChange} value={value}/>
+      </div> */}
     </main>
   );
 }

@@ -7,22 +7,22 @@ import ArrowDown2 from "@/public/assets/icons/ArrowDown2";
 
 const Header = () => {
   return (
-    <div className="px-5 py-[1.12rem] border border-solid border-[#e5eaef] bg-[#fafafa] flex items-center gap-[1.125rem]">
-      <section className="flex justify-between items-center w-[75%]">
+    <div className="px-5 py-[1.12rem] border border-solid border-[#e5eaef] bg-[#fafafa] flex justify-between items-center gap-[1.125rem]">
+      <section className="flex justify-between items-center w-[60%]">
         <h2 className="text-analytics-dark text-xl font-semibold">Dashboard</h2>
-        <div className="flex justify-between border border-solid border-analytics-grey-1 rounded-3xl h-12 bg-white pl-4 gap-2 items-center">
+        <div className="flex justify-between border border-solid border-analytics-grey-1 rounded-[1.5rem] h-12 bg-white pl-4 gap-2 items-center">
           <div>
             <Search />
           </div>
           <input
             type="search"
             placeholder="Search..."
-            className="outline-none rounded-r-3xl h-10 border-analytics-grey-1 pr-1"
+            className="outline-none rounded-r-[1.5rem] h-10 border-analytics-grey-1 pr-1"
           />
         </div>
       </section>
-      <section className="flex items-center gap-5 w-[25%]">
-        <div className="flex items-center gap-5">
+      <section className="flex items-center justify-between gap-5 w-[40%]">
+        <div className="flex items-center gap-5 justify-end">
           <div className="flex justify-center items-center gap-2">
             <div>
               <Calendar />

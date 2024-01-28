@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "next-theme";
 
 import Header from "@/components/Header";
 import SideNav from "@/components/SideNav";
@@ -20,11 +21,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-[#fafafa] flex relative">
-        <SideNav />
-        <div className="w-[95%]">
-          <Header />
-          {children}
-        </div>
+        <ThemeProvider>
+          <SideNav />
+          <div className="w-[95%] ml-[4.75rem]">
+            <Header />
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

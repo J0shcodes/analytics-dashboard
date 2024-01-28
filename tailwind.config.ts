@@ -23,10 +23,15 @@ const config: Config = {
         "analytics-grey-3": "#525252",
         "analytics-green": "#34caa5",
         "analytics-green-2": "rgba(52, 202, 165, 0.12)",
-        "analytics-red": "rgba(237, 84, 78, 0.12)"
+        "analytics-red": "rgba(237, 84, 78, 0.12)",
+        "analytic-gradient-1": "linear-gradient(180deg, #34CAA5 0%, rgba(52, 202, 165, 0.00) 100%)" 
       }
     },
+    borderRadius: {
+      "analytics-radius": "1.25rem, 1.25rem 0rem 0rem"
+    }
   },
   plugins: [],
+  darkMode: 'class'
 };
 export default config;
