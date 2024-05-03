@@ -15,6 +15,8 @@ interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = ({ toggleSideBar, setToggleSideBar }) => {
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+
   return (
     <div className="px-5 py-[1.12rem] border border-solid border-[#e5eaef] bg-[#fafafa] flex justify-between items-center gap-[1.125rem]">
       <section className="flex justify-between items-center md:w-[60%] w-[30%]">
@@ -53,7 +55,10 @@ const Header: FC<HeaderProps> = ({ toggleSideBar, setToggleSideBar }) => {
           </div>
         </div>
         {/* <div> */}
-        <div className="flex items-center justify-center gap-3 py-1.5 px-2 border border-solid border-analytics-grey-1 rounded-[1.75rem]">
+        <button
+          className="flex items-center justify-center gap-3 py-1.5 px-2 border border-solid border-analytics-grey-1 rounded-[1.75rem] relative"
+          onClick={() => setShowProfileDropdown(!showProfileDropdown)}
+        >
           <div className="rounded-[1.1875rem] overflow-hidden relative w-[2.1875rem] h-[2.1875rem]">
             <Image
               src="https://s3-alpha-sig.figma.com/img/5c6e/40a4/337c46cfe4ecd1dc345b49beaa4279e3?Expires=1707091200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=V9VFkPdOEriOAxMveQNF8anFpZ4O4KjeEz~vs9hRZvQEFIo3uRzo2eI7aHPQiFQ5rBSo7H9ChMaCIeGcI1VDe~AsDo4pkKXslQ4a0dTJVmFbKPvHg8jFvbCzmqkgvrmVAuMRYez9hsqV3YKtRj0Njt~ccl5wu0ofNaIs5ilTROpPY6R6T3PuiAS6oJ7JVcOw065yL5mSLjSPR-GRfnFM61R~9RkGiuc5QJ0FDRygdzvUMWoeAA8fRyI2hsXHtPfDqEDl3iaBZS7lyQgnt-G50Ndwhqe7Vky4qHv2dGjbpqpIrIhVM1NDyMkHtgeeBE0RDio9HINzB7-IYAMMOiSXFw"
@@ -69,7 +74,27 @@ const Header: FC<HeaderProps> = ({ toggleSideBar, setToggleSideBar }) => {
           <div>
             <ArrowDown2 />
           </div>
-        </div>
+          <div
+            className={`bg-white rounded-[0.5rem] absolute px-4 py-2 shadow-md md:top-12 md:left-28 top-14 -left-12 z-50 ${
+              showProfileDropdown ? " " : " hidden"
+            }`}
+          >
+            <ul className="">
+              <li className="text-analytics-dark md:hidden">Justin Bergson</li>
+              <li className="text-sm text-[#787486] md:hidden">
+                Justin@gmail.com
+              </li>
+              <li className="md:mt-0 mt-2">
+                <button
+                  className="hover:text-red-400 text-analytics-dark"
+                  onClick={() => setShowProfileDropdown(!showProfileDropdown)}
+                >
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </div>
+        </button>
         {/* </div> */}
       </section>
     </div>
