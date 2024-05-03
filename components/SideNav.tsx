@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react";
+import { useState, FC, Dispatch, SetStateAction } from "react";
+import { useTheme } from "next-themes";
 
 import Logo from "@/public/assets/icons/Logo";
 import ArrowRight from "@/public/assets/icons/ArrowRight";
@@ -15,7 +16,16 @@ import Profile2User from "@/public/assets/icons/Profile2User";
 import Settings from "@/public/assets/icons/Settings";
 import TrendUp from "@/public/assets/icons/TrendUp";
 
-const SideNav = () => {
+interface SidebarProps {
+  toggleSideBar: boolean
+  setToggleSideBar: Dispatch<SetStateAction<boolean>>
+}
+
+const SideNav: FC<SidebarProps> = ({toggleSideBar, setToggleSideBar}) => {
+  console.log(toggleSideBar)
+  const {theme, setTheme, systemTheme} = useTheme()
+  const currentTheme = theme === 'system' ? systemTheme : theme
+
   const [light, setLight] = useState(true);
   const [dark, setDark] = useState(false);
 
@@ -37,12 +47,19 @@ const SideNav = () => {
     }
   }
 
+  const test = () => {
+    let result = [1,2,3].map(v => v + 1).reduce((prev, concur) => prev + concur)
+    console.log(result)
+  }
+
+  console.log(test())
+
   return (
-    <div className="flex py-5 px-0 flex-col items-center gap-[0.625rem] border border-solid border-[#ebecf2] bg-[#f7f8fa] h-screen w-[5%] fixed">
+    <div className={`${toggleSideBar ? "hidden " : "flex " } py-5 px-0 flex-col items-center gap-[0.625rem] border border-solid border-[#ebecf2] bg-red-500`}>
       <section>
-        <div>
+        <button onClick={() => setToggleSideBar(!toggleSideBar)}>
           <Logo />
-        </div>
+        </button>
         <div className="flex flex-col items-center self-stretch gap-4 mt-5">
           <div>
             <Category />
@@ -89,3 +106,5 @@ const SideNav = () => {
 };
 
 export default SideNav;
+
+// #f7f8fa

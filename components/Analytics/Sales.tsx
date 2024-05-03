@@ -91,7 +91,7 @@ const Sales = () => {
 
   renderCartesianLines();
   return (
-    <div className="col-span-7 bg-white px-5 py-[1.34rem] border border-solid border-[#edf2f7] rounded-[0.875rem] h-[23.375rem]">
+    <div className="xl:col-span-7 col-span-12 bg-white px-5 py-[1.34rem] border border-solid border-[#edf2f7] rounded-[0.875rem] h-[23.375rem]">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-analytics-dark text-lg font-semibold">
           Sales Trends

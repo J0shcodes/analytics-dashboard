@@ -92,7 +92,7 @@ const Summary: FC<SummaryProps> = ({
   profit,
 }) => {
   return (
-    <div className="col-span-4 bg-white p-4 rounded-[0.875rem] border border-solid border-[#edf2f7]">
+    <div className="xl:col-span-4 col-span-12 bg-white p-4 rounded-[0.875rem] border border-solid border-[#edf2f7]">
       <div className="flex justify-between items-center">
         <div className="border border-solid border-[#e6e6e6] w-10 h-10 flex justify-center items-center rounded-[9999px]">
           {icon}

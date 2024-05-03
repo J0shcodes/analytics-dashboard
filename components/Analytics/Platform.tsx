@@ -1,6 +1,6 @@
 const Platform = () => {
   return (
-    <div className="col-span-5 bg-white px-5 py-[1.13rem] border border-solid border-[#edf2f7] rounded-[0.875rem]">
+    <div className="xl:col-span-5 col-span-12 bg-white px-5 py-[1.13rem] border border-solid border-[#edf2f7] rounded-[0.875rem]">
       <div className="flex justify-between items-center">
         <h2 className="text-analytics-dark text-lg font-semibold">
           Top Platform
