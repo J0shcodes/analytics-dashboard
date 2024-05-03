@@ -55,7 +55,7 @@ const SideNav: FC<SidebarProps> = ({toggleSideBar, setToggleSideBar}) => {
   console.log(test())
 
   return (
-    <div className={`${toggleSideBar ? "hidden " : "flex " } py-5 px-0 flex-col items-center gap-[0.625rem] border border-solid border-[#ebecf2] bg-red-500`}>
+    <div className={`${toggleSideBar ? "hidden " : "flex " } py-5 px-0 flex-col items-center gap-[0.625rem] border border-solid border-[#ebecf2] bg-[#f7f8fa]`}>
       <section>
         <button onClick={() => setToggleSideBar(!toggleSideBar)}>
           <Logo />

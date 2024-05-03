@@ -17,34 +17,34 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = ({ toggleSideBar, setToggleSideBar }) => {
   return (
     <div className="px-5 py-[1.12rem] border border-solid border-[#e5eaef] bg-[#fafafa] flex justify-between items-center gap-[1.125rem]">
-      <section className="flex justify-between items-center w-[60%]">
+      <section className="flex justify-between items-center md:w-[60%] w-[30%]">
         {toggleSideBar ? (
           <button onClick={() => setToggleSideBar(!toggleSideBar)}>
             <Logo />
           </button>
         ) : (
-          <h2 className="text-analytics-dark text-xl font-semibold">
+          <h2 className="text-analytics-dark text-xl font-semibold md:block hidden">
             Dashboard
           </h2>
         )}
-        <div className="flex justify-between border border-solid border-analytics-grey-1 rounded-[1.5rem] h-12 bg-white pl-4 gap-2 items-center">
+        <div className="flex justify-between md:border border-solid border-analytics-grey-1 rounded-[1.5rem] h-12 md:bg-white md:pl-4 gap-2 items-center">
           <div>
             <Search />
           </div>
           <input
             type="search"
             placeholder="Search..."
-            className="outline-none rounded-r-[1.5rem] h-10 border-analytics-grey-1 pr-1"
+            className="outline-none rounded-r-[1.5rem] h-10 border-analytics-grey-1 pr-1 md:block hidden"
           />
         </div>
       </section>
-      <section className="flex items-center justify-between gap-5 w-[40%]">
+      <section className="flex items-center justify-between gap-5 md:w-[40%] w-[60%]">
         <div className="flex items-center gap-5 justify-end">
           <div className="flex justify-center items-center gap-2">
             <div>
               <Calendar />
             </div>
-            <div className="text-sm text-analytics-dark font-medium">
+            <div className="text-sm text-analytics-dark font-medium md:block hidden">
               November 15, 2023
             </div>
           </div>
@@ -62,7 +62,7 @@ const Header: FC<HeaderProps> = ({ toggleSideBar, setToggleSideBar }) => {
               objectFit="cover"
             />
           </div>
-          <div>
+          <div className="hidden md:block">
             <p className="text-analytics-dark">Justin Bergson</p>
             <p className="text-sm text-[#787486]">Justin@gmail.com</p>
           </div>

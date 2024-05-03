@@ -27,13 +27,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-[#fafafa] flex relative h-screen overflow-y-hidden">
-        <ThemeProvider>
+        {/* <ThemeProvider> */}
           <SideNav toggleSideBar={toggleSideBar} setToggleSideBar={setToggleSideBar} />
           <div className={`${toggleSideBar ? "w-full " : "w-[95%] "} overflow-y-scroll main`}>
             <Header toggleSideBar={toggleSideBar} setToggleSideBar={setToggleSideBar} />
             {children}
           </div>
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
       </body>
     </html>
   );
