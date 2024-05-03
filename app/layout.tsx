@@ -30,7 +30,7 @@ export default function RootLayout({
         <ThemeProvider>
           <SideNav toggleSideBar={toggleSideBar} setToggleSideBar={setToggleSideBar} />
           <div className={`${toggleSideBar ? "w-full " : "w-[95%] "} overflow-y-scroll main`}>
-            <Header />
+            <Header toggleSideBar={toggleSideBar} setToggleSideBar={setToggleSideBar} />
             {children}
           </div>
         </ThemeProvider>

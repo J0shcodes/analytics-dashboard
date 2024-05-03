@@ -1,15 +1,32 @@
+"use client";
+
+import { useState, FC, Dispatch, SetStateAction } from "react";
 import Image from "next/image";
 
 import Search from "@/public/assets/icons/search";
 import Calendar from "@/public/assets/icons/calendar";
 import Bell from "@/public/assets/icons/bell";
 import ArrowDown2 from "@/public/assets/icons/ArrowDown2";
+import Logo from "@/public/assets/icons/Logo";
 
-const Header = () => {
+interface HeaderProps {
+  toggleSideBar: boolean;
+  setToggleSideBar: Dispatch<SetStateAction<boolean>>;
+}
+
+const Header: FC<HeaderProps> = ({ toggleSideBar, setToggleSideBar }) => {
   return (
     <div className="px-5 py-[1.12rem] border border-solid border-[#e5eaef] bg-[#fafafa] flex justify-between items-center gap-[1.125rem]">
       <section className="flex justify-between items-center w-[60%]">
-        <h2 className="text-analytics-dark text-xl font-semibold">Dashboard</h2>
+        {toggleSideBar ? (
+          <button onClick={() => setToggleSideBar(!toggleSideBar)}>
+            <Logo />
+          </button>
+        ) : (
+          <h2 className="text-analytics-dark text-xl font-semibold">
+            Dashboard
+          </h2>
+        )}
         <div className="flex justify-between border border-solid border-analytics-grey-1 rounded-[1.5rem] h-12 bg-white pl-4 gap-2 items-center">
           <div>
             <Search />
