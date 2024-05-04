@@ -16,10 +16,15 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ toggleSideBar, setToggleSideBar }) => {
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+  const [showSearchBar, setShowSearchBar] = useState(false);
 
   return (
     <div className="px-5 py-[1.12rem] border border-solid border-[#e5eaef] bg-[#fafafa] flex justify-between items-center gap-[1.125rem]">
-      <section className="flex justify-between items-center md:w-[60%] w-[30%]">
+      <section
+        className={`flex justify-between items-center md:w-[60%] ${
+          showSearchBar ? "w-[50%]" : "w-[41%]"
+        }`}
+      >
         {toggleSideBar ? (
           <button onClick={() => setToggleSideBar(!toggleSideBar)}>
             <Logo />
@@ -29,19 +34,51 @@ const Header: FC<HeaderProps> = ({ toggleSideBar, setToggleSideBar }) => {
             Dashboard
           </h2>
         )}
-        <div className="flex justify-between md:border border-solid border-analytics-grey-1 rounded-[1.5rem] h-12 md:bg-white md:pl-4 gap-2 items-center">
-          <div>
+
+        <div
+          className={`flex justify-between ${
+            showSearchBar
+              ? " border border-solid border-analytics-grey-1 rounded-[1.5rem] h-12 pl-4 w-[10rem] "
+              : " "
+          } gap-2 items-center`}
+        >
+          <button
+            className="md:hidden"
+            onClick={() => setShowSearchBar(!showSearchBar)}
+          >
+            <Search />
+          </button>
+          <input
+            type="search"
+            placeholder="Search..."
+            className={`outline-none rounded-r-[1.5rem] h-10 border-analytics-grey-1 pr-1 w-[6.875rem] ${
+              showSearchBar ? " block" : " hidden"
+            }`}
+          />
+        </div>
+
+        <div className="md:flex hidden justify-between border border-solid border-analytics-grey-1 rounded-[1.5rem] h-12 bg-white pl-4 gap-2 items-center">
+          <div className="">
             <Search />
           </div>
           <input
             type="search"
             placeholder="Search..."
-            className="outline-none rounded-r-[1.5rem] h-10 border-analytics-grey-1 pr-1 md:block hidden"
+            className="outline-none rounded-r-[1.5rem] h-10 border-analytics-grey-1 pr-1
+            "
           />
         </div>
       </section>
-      <section className="flex items-center justify-between gap-5 md:w-[40%] w-[60%]">
-        <div className="flex items-center gap-5 justify-end">
+      <section
+        className={`flex items-center ${
+          showSearchBar ? " justify-end w-[30%] " : " justify-between w-[50%] "
+        } gap-5 md:w-[40%]`}
+      >
+        <div
+          className={`${
+            showSearchBar ? "hidden " : "flex "
+          } items-center gap-5 justify-end`}
+        >
           <div className="flex justify-center items-center gap-2">
             <div>
               <Calendar />
@@ -75,7 +112,7 @@ const Header: FC<HeaderProps> = ({ toggleSideBar, setToggleSideBar }) => {
             <ArrowDown2 />
           </div>
           <div
-            className={`bg-white rounded-[0.5rem] absolute px-4 py-2 shadow-md md:top-12 md:left-28 top-14 -left-12 z-50 ${
+            className={`bg-white rounded-[0.5rem] absolute px-4 py-2 shadow-md md:top-12 md:left-28 top-14 -left-14 z-50 ${
               showProfileDropdown ? " " : " hidden"
             }`}
           >
