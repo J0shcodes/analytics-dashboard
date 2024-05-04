@@ -18,6 +18,13 @@ const Header: FC<HeaderProps> = ({ toggleSideBar, setToggleSideBar }) => {
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [showSearchBar, setShowSearchBar] = useState(false);
 
+  const today = new Date()
+  const date = today.getDate()
+  const month = today.toLocaleString("default", {month: "long"})
+  const year = today.toLocaleString("default", {year: "numeric"})
+  
+  const todaysDate = `${month} ${date}, ${year}`
+
   return (
     <div className="px-5 py-[1.12rem] border border-solid border-[#e5eaef] bg-[#fafafa] flex justify-between items-center gap-[1.125rem]">
       <section
@@ -84,7 +91,7 @@ const Header: FC<HeaderProps> = ({ toggleSideBar, setToggleSideBar }) => {
               <Calendar />
             </div>
             <div className="text-sm text-analytics-dark font-medium md:block hidden">
-              November 15, 2023
+              {todaysDate}
             </div>
           </div>
           <div className="flex justify-center items-center gap-[0.375rem] h-10 w-10 p-[0.6875rem] border-[0.0480625rem] border-solid border-analytics-grey-1 rounded-[1.6875rem]">
