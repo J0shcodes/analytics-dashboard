@@ -66,7 +66,7 @@ const Orders = () => {
           {data.map((order) => (
             <div key={order.id} className="grid grid-cols-12 border-t border-t-solid border-t-[#edf2f6] gap-3 pt-3 pb-4">
               <div className="col-span-3 flex items-center gap-[0.625rem]">
-                <div className="rounded-[1.1875rem] overflow-hidden relative w-8 h-8">
+                <div className="rounded-[1.1875rem] overflow-hidden relative w-8 h-8 md:block hidden">
                   <Image
                     src={order.img}
                     alt=""
