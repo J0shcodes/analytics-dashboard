@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 const data = [
   {
@@ -44,8 +45,14 @@ const data = [
 ];
 
 const Orders = () => {
+  const { resolvedTheme } = useTheme();
+
   return (
-    <div className="xl:col-span-7 col-span-12 px-5 py-[1.13rem] border border-solid border-[#edf2f7] rounded-[0.875rem] min-h-[26.357rem]">
+    <div
+      className={`xl:col-span-7 col-span-12 px-5 py-[1.13rem] border border-solid ${
+        resolvedTheme === "dark" ? "bg-transparent" : "bg-white"
+      } border-[#edf2f7] rounded-[0.875rem] min-h-[26.357rem]`}
+    >
       <div className="flex justify-between items-center">
         <h2 className="text-analytics-dark text-lg font-semibold">
           Last Orders
@@ -64,7 +71,10 @@ const Orders = () => {
         </div>
         <div className="mt-5">
           {data.map((order) => (
-            <div key={order.id} className="grid grid-cols-12 border-t border-t-solid border-t-[#edf2f6] gap-3 pt-3 pb-4">
+            <div
+              key={order.id}
+              className="grid grid-cols-12 border-t border-t-solid border-t-[#edf2f6] gap-3 pt-3 pb-4"
+            >
               <div className="col-span-3 flex items-center gap-[0.625rem]">
                 <div className="rounded-[1.1875rem] overflow-hidden relative w-8 h-8 md:block hidden">
                   <Image
@@ -74,11 +84,41 @@ const Orders = () => {
                     objectFit="cover"
                   />
                 </div>
-                <p className="text-analytics-dark-2 font-medium md:text-base text-sm">{order.name}</p>
+                <p
+                  className={`${
+                    resolvedTheme === "dark"
+                      ? "text-white"
+                      : "text-analytics-dark-2"
+                  } font-medium md:text-base text-sm`}
+                >
+                  {order.name}
+                </p>
               </div>
-              <div className="col-span-3 text-[#737373] md:text-base text-sm">{order.date}</div>
-              <div className="col-span-2 text-analytics-dark-3 font-medium md:text-base text-sm">{order.amount}</div>
-              <div className="col-span-2 text-sm text-analytics-dark-3 md:text-base">{order.status}</div>
+              <div
+                className={`col-span-3 ${
+                  resolvedTheme === "dark" ? "text-white" : "text-[#737373]"
+                } md:text-base text-sm`}
+              >
+                {order.date}
+              </div>
+              <div
+                className={`col-span-2 ${
+                  resolvedTheme === "dark"
+                    ? "text-white"
+                    : "text-analytics-dark-3"
+                } font-medium md:text-base text-sm`}
+              >
+                {order.amount}
+              </div>
+              <div
+                className={`col-span-2 text-sm ${
+                  resolvedTheme === "dark"
+                    ? "text-white"
+                    : "text-analytics-dark-3"
+                } md:text-base`}
+              >
+                {order.status}
+              </div>
               <div className="col-span-2 md:text-base text-sm">
                 <p>View</p>
               </div>

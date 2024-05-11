@@ -18,18 +18,22 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = ({ toggleSideBar, setToggleSideBar }) => {
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [showSearchBar, setShowSearchBar] = useState(false);
-  
-  const {resolvedTheme} = useTheme()
 
-  const today = new Date()
-  const date = today.getDate()
-  const month = today.toLocaleString("default", {month: "long"})
-  const year = today.toLocaleString("default", {year: "numeric"})
-  
-  const todaysDate = `${month} ${date}, ${year}`
+  const { resolvedTheme } = useTheme();
+
+  const today = new Date();
+  const date = today.getDate();
+  const month = today.toLocaleString("default", { month: "long" });
+  const year = today.toLocaleString("default", { year: "numeric" });
+
+  const todaysDate = `${month} ${date}, ${year}`;
 
   return (
-    <div className={`px-5 py-[1.12rem] border border-solid border-[#e5eaef] ${resolvedTheme === "dark" ? " bg-transparent" : " bg-[#fafafa]"} flex justify-between items-center gap-[1.125rem]`}>
+    <div
+      className={`px-5 py-[1.12rem] border border-solid border-[#e5eaef] ${
+        resolvedTheme === "dark" ? " bg-transparent" : " bg-[#fafafa]"
+      } flex justify-between items-center gap-[1.125rem]`}
+    >
       <section
         className={`flex justify-between items-center md:w-[60%] ${
           showSearchBar ? "w-[50%]" : "w-[41%]"
@@ -40,7 +44,11 @@ const Header: FC<HeaderProps> = ({ toggleSideBar, setToggleSideBar }) => {
             <Logo />
           </button>
         ) : (
-          <h2 className={`${resolvedTheme === "dark" ? "text-white" : "text-analytics-dark"} text-xl font-semibold md:block hidden`}>
+          <h2
+            className={`${
+              resolvedTheme === "dark" ? "text-white" : "text-analytics-dark"
+            } text-xl font-semibold md:block hidden`}
+          >
             Dashboard
           </h2>
         )}
@@ -50,7 +58,9 @@ const Header: FC<HeaderProps> = ({ toggleSideBar, setToggleSideBar }) => {
             showSearchBar
               ? " border border-solid border-analytics-grey-1 rounded-[1.5rem] h-12 pl-4 w-[10rem] "
               : " "
-          } gap-2 items-center ${resolvedTheme === "dark" ? "bg-transparent" : "bg-white"}`}
+          } gap-2 items-center ${
+            resolvedTheme === "dark" ? "bg-transparent" : "bg-white"
+          }`}
         >
           <button
             className="md:hidden"
@@ -67,7 +77,11 @@ const Header: FC<HeaderProps> = ({ toggleSideBar, setToggleSideBar }) => {
           />
         </div>
 
-        <div className={`md:flex hidden justify-between border border-solid border-analytics-grey-1 rounded-[1.5rem] h-12 pl-4 gap-2 items-center ${resolvedTheme === "dark" ? "bg-transparent" : "bg-white"}`}>
+        <div
+          className={`md:flex hidden justify-between border border-solid border-analytics-grey-1 rounded-[1.5rem] h-12 pl-4 gap-2 items-center ${
+            resolvedTheme === "dark" ? "bg-transparent" : "bg-white"
+          }`}
+        >
           <div className="">
             <Search />
           </div>
@@ -93,7 +107,11 @@ const Header: FC<HeaderProps> = ({ toggleSideBar, setToggleSideBar }) => {
             <div>
               <Calendar />
             </div>
-            <div className="text-sm text-analytics-dark font-medium md:block hidden">
+            <div
+              className={`text-sm ${
+                resolvedTheme === "dark" ? "text-white" : "text-analytics-dark"
+              } font-medium md:block hidden`}
+            >
               {todaysDate}
             </div>
           </div>
@@ -115,8 +133,20 @@ const Header: FC<HeaderProps> = ({ toggleSideBar, setToggleSideBar }) => {
             />
           </div>
           <div className="hidden md:block">
-            <p className={`${resolvedTheme === "dark" ? "text-white" : "text-analytics-dark"}`}>Justin Bergson</p>
-            <p className={`${resolvedTheme === "dark" ? "text-white" : "text-[#787486]"} text-sm`}>Justin@gmail.com</p>
+            <p
+              className={`${
+                resolvedTheme === "dark" ? "text-white" : "text-analytics-dark"
+              }`}
+            >
+              Justin Bergson
+            </p>
+            <p
+              className={`${
+                resolvedTheme === "dark" ? "text-white" : "text-[#787486]"
+              } text-sm`}
+            >
+              Justin@gmail.com
+            </p>
           </div>
           <div>
             <ArrowDown2 />

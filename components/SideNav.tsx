@@ -95,7 +95,7 @@ const SideNav: FC<SidebarProps> = ({ toggleSideBar, setToggleSideBar }) => {
           <div>
             <InfoCircle />
           </div>
-          <div className="mt-4 flex flex-col items-center gap-2 p-2  rounded-[6.25rem] bg-red-500">
+          <div className="mt-4 flex flex-col items-center gap-2 p-2  rounded-[6.25rem]">
             {resolvedTheme === "light" ? (
               <>
                 <div
