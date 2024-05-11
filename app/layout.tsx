@@ -8,6 +8,7 @@ import { ThemeProvider } from "next-themes";
 
 import Header from "@/components/Header";
 import SideNav from "@/components/SideNav";
+import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,15 +26,15 @@ export default function RootLayout({
 
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning >
       <body className="bg-[#fafafa] flex relative h-screen overflow-y-hidden">
-        {/* <ThemeProvider> */}
+        <Providers>
           <SideNav toggleSideBar={toggleSideBar} setToggleSideBar={setToggleSideBar} />
           <div className={`${toggleSideBar ? "w-full " : "w-[95%] "} overflow-y-scroll main`}>
             <Header toggleSideBar={toggleSideBar} setToggleSideBar={setToggleSideBar} />
             {children}
           </div>
-        {/* </ThemeProvider> */}
+        </Providers>
       </body>
     </html>
   );

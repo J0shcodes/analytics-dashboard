@@ -1,4 +1,6 @@
 import { FC } from "react";
+import { useTheme } from "next-themes";
+
 import {
   XAxis,
   YAxis,
@@ -91,18 +93,30 @@ const Summary: FC<SummaryProps> = ({
   secondIcon,
   profit,
 }) => {
+  const { resolvedTheme } = useTheme();
   return (
-    <div className="xl:col-span-4 col-span-12 bg-white p-4 rounded-[0.875rem] border border-solid border-[#edf2f7]">
+    <div
+      className={`xl:col-span-4 col-span-12 ${
+        resolvedTheme === "dark" ? "bg-transparent" : "bg-white"
+      } p-4 rounded-[0.875rem] border border-solid border-[#edf2f7]`}
+    >
       <div className="flex justify-between items-center">
         <div className="border border-solid border-[#e6e6e6] w-10 h-10 flex justify-center items-center rounded-[9999px]">
           {icon}
         </div>
         <div>{readings}</div>
-
       </div>
       <div className="mt-2.5">
-        <h2 className="text-[#898989] text-lg font-medium">{title}</h2>
-        <div className="text-analytics-dark-2 text-2xl font-semibold">
+        <h2
+          className={`${
+            resolvedTheme === "dark" ? "text-white" : "text-[#898989]"
+          } text-lg font-medium`}
+        >
+          {title}
+        </h2>
+        <div className={`${
+            resolvedTheme === "dark" ? "text-white" : "text-analytics-dark-2"
+          } text-2xl font-semibold`}>
           {value}
         </div>
       </div>
@@ -125,7 +139,9 @@ const Summary: FC<SummaryProps> = ({
             23.5%
           </div>
         </div>
-        <div className="text-[#606060] text-sm">vs. previous month</div>
+        <div className={`${
+            resolvedTheme === "dark" ? "text-white" : "text-[#606060]"
+          } text-sm`}>vs. previous month</div>
       </div>
     </div>
   );

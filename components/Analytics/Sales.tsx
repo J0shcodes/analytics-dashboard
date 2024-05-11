@@ -1,6 +1,8 @@
 "use client";
 
 import { ReactNode } from "react";
+import { useTheme } from "next-themes";
+
 import {
   BarChart,
   Bar,
@@ -12,7 +14,7 @@ import {
   Legend,
   Rectangle,
   AreaChart,
-  Area
+  Area,
 } from "recharts";
 
 import Line from "@/public/assets/icons/Line";
@@ -89,15 +91,31 @@ const Sales = () => {
     }
   };
 
+  const { resolvedTheme } = useTheme();
+
   renderCartesianLines();
   return (
-    <div className="xl:col-span-7 col-span-12 bg-white px-5 py-[1.34rem] border border-solid border-[#edf2f7] rounded-[0.875rem] h-[23.375rem]">
+    <div
+      className={`xl:col-span-7 col-span-12 ${
+        resolvedTheme === "dark" ? "bg-transparent" : "bg-white"
+      } px-5 py-[1.34rem] border border-solid border-[#edf2f7] rounded-[0.875rem] h-[23.375rem]`}
+    >
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-analytics-dark text-lg font-semibold">
+        <h2
+          className={`${
+            resolvedTheme === "dark" ? "text-white" : "text-analytics-dark"
+          } text-lg font-semibold"`}
+        >
           Sales Trends
         </h2>
         <div className="flex items-center gap-2.5">
-          <p className="text-sm font-medium text-analytics-dark-2">Short by:</p>
+          <p
+            className={`text-sm font-medium ${
+              resolvedTheme === "dark" ? "text-white" : "text-analytics-dark-2"
+            }`}
+          >
+            Short by:
+          </p>
           <select className="py-1.5 px-3 rounded-[1.25rem] border border-solid border-[#e1dfdf] outline-none">
             <option>Weekly</option>
             <option>Monthly</option>
@@ -112,25 +130,25 @@ const Sales = () => {
       {/* <div> */}
       {/* <div> */}
       <ResponsiveContainer width="100%" height={277}>
-          <BarChart width={11.2506} height={216} data={data}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            {/* <Legend /> */}
-            <Bar
-              dataKey="pv"
-              fill="rgba(52, 202, 165, 0.10)"
-              activeBar={<Rectangle fill="#34CAA5" stroke="blue" />}
-              barSize={30}
-            />
-            {/* <Bar
+        <BarChart width={11.2506} height={216} data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          {/* <Legend /> */}
+          <Bar
+            dataKey="pv"
+            fill="rgba(52, 202, 165, 0.10)"
+            activeBar={<Rectangle fill="#34CAA5" stroke="blue" />}
+            barSize={30}
+          />
+          {/* <Bar
               dataKey="uv"
               fill="#82"
               activeBar={<Rectangle fill="gold" stroke="purple" />}
             /> */}
-          </BarChart>
-        </ResponsiveContainer>
+        </BarChart>
+      </ResponsiveContainer>
       {/* </div> */}
     </div>
   );
